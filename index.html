@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriMounjaro</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; }
+        body { font-family: system-ui; background: #f5f5f5; }
+
+        .header { 
+            background: linear-gradient(135deg, #10B981, #3B82F6); 
+            color: white; 
+            padding: 15px; 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left h1 { font-size: 18px; margin: 0; }
+        .header-left p { font-size: 12px; opacity: 0.9; margin: 0; }
+
+        .tiktok-btn {
+            background: #000;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .main { 
+            padding: 70px 15px 90px 15px;
+        }
+
+        .tab { 
+            display: none;
+        }
+
+        .tab.show {
+            display: block;
+        }
+
+        .card { 
+            background: white; 
+            border-radius: 12px; 
+            padding: 15px; 
+            margin-bottom: 12px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+        }
+
+        h3 { margin-bottom: 12px; font-size: 16px; }
+        button { border: none; cursor: pointer; }
+        .btn { background: #10B981; color: white; padding: 12px; width: 100%; border-radius: 8px; font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+        input, select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 10px; font-size: 14px; }
+
+        .recipes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .recipe { background: white; padding: 15px; border-radius: 12px; text-align: center; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+        .recipe-icon { font-size: 40px; }
+        .recipe-name { font-size: 12px; font-weight: 600; margin-top: 8px; }
+
+        .exercise { background: white; padding: 15px; border-radius: 12px; margin-bottom: 12px; cursor: pointer; }
+        .exercise-title { font-weight: 600; }
+        .exercise-detail { font-size: 12px; margin-top: 10px; }
+
+        .bottom-nav { 
+            position: fixed; 
+            bottom: 0; 
+            width: 100%; 
+            background: white; 
+            display: flex; 
+            border-top: 1px solid #eee; 
+            z-index: 100; 
+        }
+
+        .nav-btn { 
+            flex: 1; 
+            padding: 10px 5px; 
+            text-align: center; 
+            background: none; 
+            font-size: 11px; 
+            color: #666;
+            transition: color 0.2s;
+        }
+
+        .nav-btn.active { 
+            color: #10B981; 
+        }
+
+        .modal { 
+            display: none; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: rgba(0,0,0,0.5); 
+            z-index: 200;
+            justify-content: flex-end;
+            flex-direction: column;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content { 
+            background: white; 
+            width: 100%; 
+            border-radius: 20px 20px 0 0; 
+            padding: 20px; 
+            max-height: 80vh; 
+            overflow-y: auto; 
+        }
+
+        .table { width: 100%; font-size: 12px; border-collapse: collapse; }
+        .table th, .table td { padding: 8px; border-bottom: 1px solid #eee; text-align: left; }
+        .table th { background: #f5f5f5; }
+
+        .empty { text-align: center; padding: 30px; color: #999; }
+        .label { font-size: 12px; font-weight: 600; color: #666; margin-bottom: 5px; display: block; }
+
+        .chat-box { height: 300px; overflow-y: auto; border: 1px solid #ddd; border-radius: 8px; padding: 10px; margin-bottom: 10px; }
+        .msg-user { text-align: right; margin: 10px 0; }
+        .msg-user div { display: inline-block; background: #10B981; color: white; padding: 10px; border-radius: 8px; max-width: 80%; }
+        .msg-bot { text-align: left; margin: 10px 0; }
+        .msg-bot div { display: inline-block; background: #f0f0f0; padding: 10px; border-radius: 8px; max-width: 80%; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="header-left">
+        <h1>🥗 NutriMounjaro</h1>
+        <p>@manuel.mounjaro</p>
+    </div>
+    <a href="https://www.tiktok.com/@manuel.mounjaro" target="_blank" class="tiktok-btn">🎵</a>
+</div>
+
+<div class="main">
+
+    <!-- TAB 1: CHAT -->
+    <div class="tab show" id="tab1">
+        <div class="card">
+            <h3>💬 Chat</h3>
+            <div class="chat-box" id="chatbox">
+                <div class="msg-bot"><div>¡Hola! Soy tu asistente de nutrición</div></div>
+            </div>
+            <input type="text" id="msg" placeholder="Escribe tu pregunta..." onkeypress="if(event.key==='Enter') sendMsg()">
+            <button class="btn" onclick="sendMsg()">Enviar</button>
+        </div>
+    </div>
+
+    <!-- TAB 2: RECETAS -->
+    <div class="tab" id="tab2">
+        <div class="recipes">
+            <div class="recipe" onclick="showRecipe('Pollo a la Plancha', 280, 35)">
+                <div class="recipe-icon">🍗</div>
+                <div class="recipe-name">Pollo</div>
+            </div>
+            <div class="recipe" onclick="showRecipe('Ensalada de Atún', 320, 28)">
+                <div class="recipe-icon">🥗</div>
+                <div class="recipe-name">Atún</div>
+            </div>
+            <div class="recipe" onclick="showRecipe('Salmón al Horno', 350, 32)">
+                <div class="recipe-icon">🐟</div>
+                <div class="recipe-name">Salmón</div>
+            </div>
+            <div class="recipe" onclick="showRecipe('Tortilla de Claras', 180, 22)">
+                <div class="recipe-icon">🥚</div>
+                <div class="recipe-name">Tortilla</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 3: EJERCICIOS -->
+    <div class="tab" id="tab3">
+        <div class="card">
+            <div class="exercise" onclick="toggleDetail('ej1')">
+                <div class="exercise-title">🔥 Cardio Quema-Grasa (25 min)</div>
+                <div class="exercise-detail" id="ej1" style="display: none;">• Calentamiento 5 min<br>• Burpees HIIT 5 series<br>• Caminata 5 min<br>• Estiramientos 5 min</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="exercise" onclick="toggleDetail('ej2')">
+                <div class="exercise-title">💪 Tonificación (20 min)</div>
+                <div class="exercise-detail" id="ej2" style="display: none;">• Flexiones 3x12<br>• Sentadillas 3x15<br>• Fondos 3x10<br>• Mountain climbers 3x20</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="exercise" onclick="toggleDetail('ej3')">
+                <div class="exercise-title">🧘 Yoga Relax (30 min)</div>
+                <div class="exercise-detail" id="ej3" style="display: none;">• Respiración profunda 5 min<br>• Posturas principales 15 min<br>• Meditación 5 min<br>• Relajación 5 min</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 4: SEGUIMIENTO -->
+    <div class="tab" id="tab4">
+        <div class="card">
+            <h3>📊 Estadísticas</h3>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
+                <div style="background: #f0f0f0; padding: 12px; border-radius: 8px; text-align: center;">
+                    <div style="font-size: 20px; font-weight: bold; color: #10B981;" id="stat1">0</div>
+                    <div style="font-size: 11px; color: #666; margin-top: 4px;">kg perdidos</div>
+                </div>
+                <div style="background: #f0f0f0; padding: 12px; border-radius: 8px; text-align: center;">
+                    <div style="font-size: 20px; font-weight: bold; color: #10B981;" id="stat2">0</div>
+                    <div style="font-size: 11px; color: #666; margin-top: 4px;">kg/semana</div>
+                </div>
+                <div style="background: #f0f0f0; padding: 12px; border-radius: 8px; text-align: center;">
+                    <div style="font-size: 20px; font-weight: bold; color: #10B981;" id="stat3">0</div>
+                    <div style="font-size: 11px; color: #666; margin-top: 4px;">semanas</div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h3>➕ Nuevo Registro</h3>
+            <span class="label">Semana</span>
+            <input type="number" id="week" placeholder="1">
+            <span class="label">Medicamento y Dosis</span>
+            <select id="dose">
+                <option>Mounjaro 2.5 mg</option>
+                <option>Mounjaro 5 mg</option>
+                <option>Mounjaro 10 mg</option>
+                <option>Mounjaro 15 mg</option>
+                <option>Ozempic 0.25 mg</option>
+                <option>Ozempic 0.5 mg</option>
+                <option>Ozempic 1 mg</option>
+                <option>Ozempic 2.4 mg</option>
+            </select>
+            <span class="label">Peso (kg)</span>
+            <input type="number" id="weight" step="0.1" placeholder="85.5">
+            <button class="btn" onclick="saveRecord()">💾 Guardar</button>
+        </div>
+        <div class="card">
+            <h3>📋 Historial</h3>
+            <div id="records"><div class="empty">Sin registros</div></div>
+        </div>
+    </div>
+
+    <!-- TAB 5: LISTA DE COMPRA -->
+    <div class="tab" id="tab5">
+        <div class="card">
+            <h3>🛒 Lista de Compra</h3>
+            <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+                <input type="text" id="item" placeholder="Alimento..." style="margin-bottom: 0; flex: 1;" onkeypress="if(event.key==='Enter') addItem()">
+                <button onclick="addItem()" style="background: #10B981; color: white; width: 40px; border-radius: 8px;">+</button>
+            </div>
+            <div id="shopping"><div class="empty">Lista vacía</div></div>
+            <button class="btn" style="background: #25D366;" onclick="copyToWhatsApp()">📱 Copiar a WhatsApp</button>
+            <button class="btn" style="background: #ff4444;" onclick="clearList()">🗑️ Limpiar</button>
+        </div>
+    </div>
+
+    <!-- TAB 6: INFORMACIÓN -->
+    <div class="tab" id="tab6">
+        <div class="card">
+            <h3>💉 Protocolo Mounjaro</h3>
+            <p style="font-size: 13px; line-height: 1.8;">
+                <b>Semanas 1-4:</b> 2.5 mg semanal<br>
+                <b>Semanas 5-8:</b> 5 mg semanal<br>
+                <b>Semanas 9-12:</b> 10 mg semanal<br>
+                <b>Semanas 13+:</b> 15 mg semanal<br><br>
+                <b style="color: #10B981;">Pérdida esperada: 22-25% del peso inicial</b>
+            </p>
+        </div>
+        <div class="card">
+            <h3>💉 Protocolo Ozempic</h3>
+            <p style="font-size: 13px; line-height: 1.8;">
+                <b>Semanas 1-4:</b> 0.25 mg semanal<br>
+                <b>Semanas 5-8:</b> 0.5 mg semanal<br>
+                <b>Semanas 9-12:</b> 1 mg semanal<br>
+                <b>Semanas 13+:</b> 2.4 mg semanal<br><br>
+                <b style="color: #3B82F6;">Pérdida esperada: 10-15% del peso inicial</b>
+            </p>
+        </div>
+        <div class="card">
+            <h3>❓ Preguntas Frecuentes</h3>
+            <p style="font-size: 13px; line-height: 1.8;">
+                <b>¿Cuándo veo resultados?</b> Entre semana 4-6 de tratamiento<br><br>
+                <b>¿Puedo hacer ejercicio?</b> Sí, es recomendado. Empieza suave<br><br>
+                <b>¿Hay efectos secundarios?</b> Leves y temporales, mejoran en 2-3 semanas<br><br>
+                <b>¿Puedo beber alcohol?</b> Mejor evitarlo, aumenta náuseas
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <button style="float: right; background: none; border: none; font-size: 24px; cursor: pointer;" onclick="closeModal()">✕</button>
+        <div id="modalBody"></div>
+    </div>
+</div>
+
+<!-- BOTTOM NAVIGATION -->
+<div class="bottom-nav">
+    <button class="nav-btn active" onclick="switchTab(1)"><div style="font-size: 20px;">💬</div>Chat</button>
+    <button class="nav-btn" onclick="switchTab(2)"><div style="font-size: 20px;">🍽️</div>Recetas</button>
+    <button class="nav-btn" onclick="switchTab(3)"><div style="font-size: 20px;">💪</div>Ejercicio</button>
+    <button class="nav-btn" onclick="switchTab(4)"><div style="font-size: 20px;">📊</div>Registro</button>
+    <button class="nav-btn" onclick="switchTab(5)"><div style="font-size: 20px;">🛒</div>Compra</button>
+    <button class="nav-btn" onclick="switchTab(6)"><div style="font-size: 20px;">ℹ️</div>Info</button>
+</div>
+
+<script>
+    let records = [];
+    let items = [];
+
+    // CAMBIAR TAB
+    function switchTab(n) {
+        // Ocultar todos los tabs
+        let tabs = document.querySelectorAll('.tab');
+        for (let i = 0; i < tabs.length; i++) {
+            tabs[i].classList.remove('show');
+        }
+        // Mostrar tab seleccionado
+        document.getElementById('tab' + n).classList.add('show');
+
+        // Actualizar botones de navegación
+        let btns = document.querySelectorAll('.nav-btn');
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].classList.remove('active');
+        }
+        btns[n - 1].classList.add('active');
+    }
+
+    // CHAT
+    function sendMsg() {
+        let inp = document.getElementById('msg');
+        let msg = inp.value.trim();
+        if (!msg) return;
+
+        let box = document.getElementById('chatbox');
+        let userDiv = document.createElement('div');
+        userDiv.className = 'msg-user';
+        userDiv.innerHTML = '<div>' + msg + '</div>';
+        box.appendChild(userDiv);
+        inp.value = '';
+
+        setTimeout(() => {
+            let resp = '🤔 Pregúntame sobre dosis, alimentación o ejercicio';
+            if (msg.toLowerCase().includes('dosis')) resp = '📋 Mounjaro: 2.5→5→10→15mg | Ozempic: 0.25→0.5→1→2.4mg semanal';
+            if (msg.toLowerCase().includes('comida') || msg.toLowerCase().includes('receta')) resp = '🍽️ Método 50-25-25: 50% verduras, 25% proteína, 25% carbohidratos';
+            if (msg.toLowerCase().includes('ejercicio')) resp = '💪 150 min/semana de cardio + 2-3 días de fuerza';
+            if (msg.toLowerCase().includes('resultado') || msg.toLowerCase().includes('peso')) resp = '📈 Mounjaro: 22-25% | Ozempic: 10-15% de pérdida de peso';
+
+            let botDiv = document.createElement('div');
+            botDiv.className = 'msg-bot';
+            botDiv.innerHTML = '<div>' + resp + '</div>';
+            box.appendChild(botDiv);
+            box.scrollTop = box.scrollHeight;
+        }, 300);
+    }
+
+    // RECETAS
+    function showRecipe(name, cal, prot) {
+        document.getElementById('modalBody').innerHTML = '<h2>' + name + '</h2><p style="margin: 15px 0;"><b>' + cal + ' kcal | ' + prot + 'g proteína</b></p><p>Ingredientes y preparación disponibles en la app completa.</p>';
+        document.getElementById('modal').classList.add('active');
+    }
+
+    function closeModal() {
+        document.getElementById('modal').classList.remove('active');
+    }
+
+    // EJERCICIOS
+    function toggleDetail(id) {
+        let el = document.getElementById(id);
+        if (el.style.display === 'none') {
+            el.style.display = 'block';
+        } else {
+            el.style.display = 'none';
+        }
+    }
+
+    // SEGUIMIENTO
+    function saveRecord() {
+        let week = document.getElementById('week').value;
+        let dose = document.getElementById('dose').value;
+        let weight = document.getElementById('weight').value;
+
+        if (!week || !weight) {
+            alert('Completa semana y peso');
+            return;
+        }
+
+        records.push({week: parseInt(week), dose: dose, weight: parseFloat(weight)});
+        records.sort((a, b) => a.week - b.week);
+
+        document.getElementById('week').value = '';
+        document.getElementById('weight').value = '';
+        showRecords();
+    }
+
+    function showRecords() {
+        let div = document.getElementById('records');
+        if (records.length === 0) {
+            div.innerHTML = '<div class="empty">Sin registros</div>';
+            return;
+        }
+
+        let lost = (records[0].weight - records[records.length - 1].weight).toFixed(1);
+        document.getElementById('stat1').textContent = Math.max(0, lost);
+        document.getElementById('stat3').textContent = records.length;
+
+        let html = '<table class="table"><tr><th>Sem</th><th>Dosis</th><th>Peso</th><th></th></tr>';
+        records.forEach((r, i) => {
+            html += '<tr><td>' + r.week + '</td><td>' + r.dose + '</td><td>' + r.weight + 'kg</td><td><button style="background: #ff4444; color: white; padding: 5px 10px; border-radius: 4px; border: none; cursor: pointer;" onclick="delRecord(' + i + ')">✕</button></td></tr>';
+        });
+        div.innerHTML = html + '</table>';
+    }
+
+    function delRecord(i) {
+        records.splice(i, 1);
+        showRecords();
+    }
+
+    // LISTA DE COMPRA
+    function addItem() {
+        let inp = document.getElementById('item');
+        let txt = inp.value.trim();
+        if (!txt) return;
+
+        items.push({name: txt, checked: false});
+        inp.value = '';
+        showItems();
+    }
+
+    function showItems() {
+        let div = document.getElementById('shopping');
+        if (items.length === 0) {
+            div.innerHTML = '<div class="empty">Lista vacía</div>';
+            return;
+        }
+
+        let html = '';
+        items.forEach((item, i) => {
+            html += '<div style="display: flex; align-items: center; gap: 10px; padding: 10px; background: white; border-radius: 8px; margin-bottom: 8px;"><div style="width: 20px; height: 20px; border: 2px solid #ddd; border-radius: 4px; ' + (item.checked ? 'background: #10B981; border-color: #10B981;' : '') + '" onclick="checkItem(' + i + ')"></div><span style="flex: 1;">' + item.name + '</span><button style="background: #ff4444; color: white; padding: 5px 10px; border-radius: 4px; border: none; cursor: pointer;" onclick="delItem(' + i + ')">✕</button></div>';
+        });
+        div.innerHTML = html;
+    }
+
+    function checkItem(i) {
+        items[i].checked = !items[i].checked;
+        showItems();
+    }
+
+    function delItem(i) {
+        items.splice(i, 1);
+        showItems();
+    }
+
+    function copyToWhatsApp() {
+        if (items.length === 0) {
+            alert('La lista está vacía');
+            return;
+        }
+
+        let txt = '🛒 Mi Lista de Compra\n\n';
+        items.filter(i => !i.checked).forEach(i => {
+            txt += '• ' + i.name + '\n';
+        });
+        txt += '\n@manuel.mounjaro';
+
+        navigator.clipboard.writeText(txt).then(() => {
+            alert('✅ Copiado a WhatsApp');
+        });
+    }
+
+    function clearList() {
+        if (confirm('¿Limpiar la lista?')) {
+            items = [];
+            showItems();
+        }
+    }
+
+    // Inicializar
+    showItems();
+</script>
+
+</body>
+</html>
