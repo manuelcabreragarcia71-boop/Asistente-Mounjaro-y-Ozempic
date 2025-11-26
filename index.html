@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Nutricionista Mounjaro</title>
+  <meta name="description" content="App móvil: recetas, seguimiento, chat y consejos para usuarios de Mounjaro/Ozempic." />
+  <link rel="icon" href="https://www.svgrepo.com/show/475686/apple.svg" />
+  <style>
+    /* INICIO DISEÑO SISTEMA PERPLEXITY */
+    :root { /* Pega el sistema de diseño aquí (provisto arriba) */
+      /* ... [Todo el design system CSS, ver arriba, comienza aquí] ... */
+      --color-white: rgba(255,255,255,1);
+      --color-black: rgba(0,0,0,1);
+      --color-cream-50: rgba(252, 252, 249, 1);
+      --color-cream-100: rgba(255, 255, 253, 1);
+      --color-gray-200: rgba(245, 245, 245, 1);
+      --color-gray-300: rgba(167, 169, 169, 1);
+      --color-gray-400: rgba(119, 124, 124, 1);
+      --color-slate-500: rgba(98, 108, 113, 1);
+      --color-brown-600: rgba(94, 82, 64, 1);
+      --color-charcoal-700: rgba(31, 33, 33, 1);
+      --color-charcoal-800: rgba(38, 40, 40, 1);
+      --color-slate-900: rgba(19, 52, 59, 1);
+      --color-teal-300: rgba(50, 184, 198, 1);
+      --color-teal-400: rgba(45, 166, 178, 1);
+      --color-teal-500: rgba(33, 128, 141, 1);
+      --color-teal-600: rgba(29, 116, 128, 1);
+      --color-teal-700: rgba(26, 104, 115, 1);
+      --color-teal-800: rgba(41,150,161,1);
+      --color-red-400: rgba(255,84,89,1);
+      --color-red-500: rgba(192,21,47,1);
+      --color-orange-400: rgba(230,129,97,1);
+      --color-orange-500: rgba(168,75,47,1);
+      --color-brown-600-rgb: 94, 82, 64;
+      --color-teal-500-rgb: 33,128,141;
+      --color-slate-900-rgb: 19,52,59;
+      --color-slate-500-rgb: 98,108,113;
+      --color-red-500-rgb: 192,21,47;
+      --color-red-400-rgb: 255,84,89;
+      --color-orange-500-rgb: 168,75,47;
+      --color-orange-400-rgb: 230,129,97;
+      --color-bg-1: rgba(59,130,246,0.08);
+      --color-bg-2: rgba(245,158,11,0.08);
+      --color-bg-3: rgba(34,197,94,0.08);
+      --color-bg-4: rgba(239,68,68,0.08);
+      --color-bg-5: rgba(147,51,234,0.08);
+      --color-bg-6: rgba(249,115,22,0.08);
+      --color-bg-7: rgba(236,72,153,0.08);
+      --color-bg-8: rgba(6,182,212,0.08);
+      --color-background: var(--color-cream-50);
+      --color-surface: var(--color-cream-100);
+      --color-text: var(--color-slate-900);
+      --color-text-secondary: var(--color-slate-500);
+      --color-primary: var(--color-teal-500);
+      --color-primary-hover: var(--color-teal-600);
+      --color-primary-active: var(--color-teal-700);
+      --color-secondary: rgba(var(--color-brown-600-rgb),0.12);
+      --color-secondary-hover: rgba(var(--color-brown-600-rgb),0.2);
+      --color-secondary-active: rgba(var(--color-brown-600-rgb),0.25);
+      --color-border: rgba(var(--color-brown-600-rgb),0.2);
+      --color-btn-primary-text: var(--color-cream-50);
+      --color-card-border: rgba(var(--color-brown-600-rgb),0.12);
+      --color-card-border-inner: rgba(var(--color-brown-600-rgb),0.12);
+      --color-error: var(--color-red-500);
+      --color-success: var(--color-teal-500);
+      --color-warning: var(--color-orange-500);
+      --color-info: var(--color-slate-500);
+      --color-focus-ring: rgba(var(--color-teal-500-rgb),0.4);
+      --color-select-caret: rgba(var(--color-slate-900-rgb),0.8);
+      --focus-ring: 0 0 0 3px var(--color-focus-ring);
+      --focus-outline: 2px solid var(--color-primary);
+      --status-bg-opacity: 0.15;
+      --status-border-opacity: 0.25;
+      --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      --color-success-rgb: 33,128,141;
+      --color-error-rgb: 192,21,47;
+      --color-warning-rgb: 168,75,47;
+      --color-info-rgb: 98,108,113;
+      --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-size-xs: 11px;
+      --font-size-sm: 12px;
+      --font-size-base: 15px;
+      --font-size-md: 16px;
+      --font-size-lg: 18px;
+      --font-size-xl: 20px;
+      --font-size-2xl: 22px;
+      --font-size-3xl: 26px;
+      --font-size-4xl: 32px;
+      --font-weight-normal: 400;
+      --font-weight-medium: 500;
+      --font-weight-semibold: 550;
+      --font-weight-bold: 600;
+      --line-height-tight: 1.2;
+      --line-height-normal: 1.5;
+      --letter-spacing-tight: -0.01em;
+      --space-0: 0;
+      --space-1: 1px;
+      --space-2: 2px;
+      --space-4: 4px;
+      --space-6: 6px;
+      --space-8: 8px;
+      --space-10: 10px;
+      --space-12: 12px;
+      --space-16: 16px;
+      --space-20: 20px;
+      --space-24: 24px;
+      --space-32: 32px;
+      --radius-sm: 6px;
+      --radius-base: 8px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --radius-full: 9999px;
+      --shadow-xs: 0 1px 2px rgba(0,0,0,0.02);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.03), 0 2px 4px -1px rgba(0,0,0,0.02);
+      --shadow-lg: 0 8px 15px -3px rgba(0,0,0,0.04), 0 3px 5px -2px rgba(0,0,0,0.02);
+      --shadow-inset-sm: inset 0 1px 0 rgba(255,255,255,0.15),inset 0 -1px 0 rgba(0,0,0,0.03);
+      --duration-fast: 150ms;
+      --duration-normal: 250ms;
+      --ease-standard: cubic-bezier(0.16,1,0.3,1);
+      --container-sm: 100vw;
+      --container-md: 100vw;
+      --container-lg: 100vw;
+      --container-xl: 100vw;
+    }
+    /* FIN DISEÑO SISTEMA PERPLEXITY */
+    html {
+      box-sizing: border-box;
+      font-size: 100%;
+    }
+    *, *:before, *:after { box-sizing: inherit; }
+    body {
+      background: var(--color-background);
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-family-base);
+      color: var(--color-text);
+      font-size: var(--font-size-md);
+    }
+    .app-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      z-index: 88;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal-700) 100%);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-20) var(--space-16) var(--space-16) var(--space-16);
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      animation: slideDown 0.4s var(--ease-standard);
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .logo-title {
+      font-size: var(--font-size-3xl);
+      text-align: center;
+      font-weight: var(--font-weight-bold);
+      letter-spacing: -0.02em;
+      color: var(--color-white);
+      margin-bottom: var(--space-4);
+      text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .subtitle {
+      font-size: var(--font-size-lg);
+      color: rgba(255,255,255,0.95);
+      text-align: center;
+      margin-bottom: var(--space-6);
+      font-weight: var(--font-weight-medium);
+    }
+    .credit {
+      color: rgba(255,255,255,0.75);
+      font-size: var(--font-size-xs);
+      margin-bottom: 0;
+      text-align: center;
+      font-weight: var(--font-weight-normal);
+    }
+    /* FAB TikTok mobile*/
+    .tiktok-fab-btn {
+      position: fixed;
+      top: var(--space-12);
+      right: var(--space-12);
+      z-index: 99;
+      background: #FE2C55;
+      color: var(--color-white);
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid rgba(255,255,255,0.3);
+      box-shadow: 0 4px 20px rgba(254,44,85,0.5);
+      outline: none;
+      cursor: pointer;
+      font-size: 28px;
+      transition: all var(--duration-normal) var(--ease-standard);
+      animation: tiktokPulse 2s infinite, tiktokfloat 0.4s var(--ease-standard);
+    }
+    .tiktok-fab-btn:hover {
+      background: #E02444;
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(254,44,85,0.7);
+    }
+    @keyframes tiktokfloat {
+      0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+      60% { transform: scale(1.15) rotate(10deg); }
+      100% { transform: scale(1) rotate(0); opacity: 1; }
+    }
+    @keyframes tiktokPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(254,44,85,0.5); }
+      50% { box-shadow: 0 4px 30px rgba(254,44,85,0.8); }
+    }
+    .tiktok-fab-btn svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--color-white);
+      display: block;
+    }
+
+    /* Bottom nav mobile */
+    .bottom-nav {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100vw;
+      z-index: 90;
+      background: var(--color-surface);
+      border-top: 2px solid var(--color-card-border);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: var(--space-4) 0 var(--space-6) 0;
+      height: 68px;
+      gap: 0;
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+      animation: slideUp 0.4s var(--ease-standard);
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .nav-btn {
+      flex: 1 1 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background: none;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: var(--font-weight-medium);
+      color: var(--color-text-secondary);
+      padding: var(--space-6) var(--space-4);
+      height: 56px;
+      cursor: pointer;
+      transition: all var(--duration-normal) var(--ease-standard);
+      min-width: 0;
+      outline: none;
+      position: relative;
+      border-radius: var(--radius-base);
+    }
+    .nav-btn.active {
+      color: var(--color-primary);
+      font-weight: var(--font-weight-semibold);
+      background: linear-gradient(to bottom, var(--color-bg-3), transparent);
+      transform: translateY(-2px);
+    }
+    .nav-btn.active::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 32px;
+      height: 3px;
+      background: var(--color-primary);
+      border-radius: 0 0 var(--radius-full) var(--radius-full);
+      animation: slideInTop 0.3s var(--ease-standard);
+    }
+    @keyframes slideInTop {
+      from { width: 0; opacity: 0; }
+      to { width: 32px; opacity: 1; }
+    }
+    .nav-btn svg {
+      display: block;
+      margin: 0 auto 3px auto;
+      width: 26px;
+      height: 26px;
+      transition: transform var(--duration-normal) var(--ease-standard);
+    }
+    .nav-btn:active svg {
+      transform: scale(0.85);
+    }
+    .nav-btn.active svg {
+      transform: scale(1.08);
+    }
+
+    main {
+      margin-top: 110px;
+      margin-bottom: 72px;
+      min-height: calc(100vh - 182px);
+      padding: var(--space-16) 0 var(--space-24) 0;
+      background: var(--color-background);
+      padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 24px);
+    }
+    section {
+      animation: fadeIn 0.4s var(--ease-standard);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SECTION: Chat (mobile) */
+    #chat-section {
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 200px);
+      max-height: 580px;
+      padding: 0 var(--space-12) 0 var(--space-12);
+      overflow: hidden;
+    }
+    .chat-header {
+      text-align: center;
+      font-size: var(--font-size-lg);
+      color: var(--color-primary);
+      font-weight: var(--font-weight-semibold);
+      margin-bottom: var(--space-12);
+      padding: var(--space-8) 0;
+      background: var(--color-bg-1);
+      border-radius: var(--radius-lg);
+    }
+    .chat-history {
+      flex: 1 1 0;
+      overflow-y: auto;
+      margin-bottom: var(--space-8);
+      padding-right: var(--space-4);
+      scrollbar-width: thin;
+    }
+    .chat-bubble {
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: var(--space-12);
+      max-width: 82%;
+      border-radius: var(--radius-lg);
+      padding: var(--space-12) var(--space-16);
+      font-size: var(--font-size-md);
+      line-height: 1.5;
+      word-break: break-word;
+      box-shadow: var(--shadow-md);
+      animation: bubbleIn 0.3s var(--ease-standard);
+    }
+    @keyframes bubbleIn {
+      from { opacity: 0; transform: scale(0.92) translateY(8px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .chat-bubble.user {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-teal-600));
+      color: var(--color-white);
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+      margin-left: auto;
+    }
+    .chat-bubble.assistant {
+      background: var(--color-surface);
+      color: var(--color-text);
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+      border: 1.5px solid var(--color-card-border);
+      margin-right: auto;
+    }
+    .chat-form {
+      display: flex;
+      gap: var(--space-10);
+      width: 100%;
+      background: none;
+      padding: var(--space-12) 0 0 0;
+      margin-top: auto;
+    }
+    .chat-form input {
+      flex: 1;
+      font-size: var(--font-size-md);
+      padding: var(--space-12) var(--space-16);
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--color-border);
+      outline: none;
+      background: var(--color-surface);
+      transition: all var(--duration-fast) var(--ease-standard);
+      box-shadow: var(--shadow-sm);
+    }
+    .chat-form input:focus {
+      border-color: var(--color-primary);
+      box-shadow: var(--focus-ring);
+    }
+    .chat-form button {
+      min-width: 72px;
+      height: 52px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--color-primary), var(--color-teal-600));
+      color: var(--color-white);
+      border: none;
+      font-size: var(--font-size-md);
+      font-weight: var(--font-weight-semibold);
+      cursor: pointer;
+      transition: all var(--duration-normal) var(--ease-standard);
+      box-shadow: var(--shadow-md);
+    }
+    .chat-form button:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .chat-form button:active {
+      transform: translateY(0);
+    }
+
+    /* SECTION: Recetas */
+    #recetas-section {
+      padding: 0 var(--space-12);
+    }
+    .section-title {
+      font-size: var(--font-size-2xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-primary);
+      margin-bottom: var(--space-16);
+      text-align: center;
+      letter-spacing: -0.01em;
+    }
+    .recetas-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-12);
+    }
+    .receta-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: var(--space-16) var(--space-12);
+      transition: all var(--duration-normal) var(--ease-standard);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+      min-height: 160px;
+      font-size: var(--font-size-sm);
+      border: 2px solid transparent;
+      animation: cardFadeIn 0.4s var(--ease-standard) backwards;
+    }
+    @keyframes cardFadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .receta-card:nth-child(1) { animation-delay: 0.05s; }
+    .receta-card:nth-child(2) { animation-delay: 0.1s; }
+    .receta-card:nth-child(3) { animation-delay: 0.15s; }
+    .receta-card:nth-child(4) { animation-delay: 0.2s; }
+    .receta-card:nth-child(5) { animation-delay: 0.25s; }
+    .receta-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-primary);
+    }
+    .receta-card .icon {
+      font-size: 36px;
+      margin-bottom: var(--space-8);
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+    .receta-card strong {
+      font-size: var(--font-size-md);
+      color: var(--color-text);
+      font-weight: var(--font-weight-semibold);
+      margin-bottom: var(--space-6);
+      line-height: 1.3;
+    }
+    .receta-card .mini-table {
+      font-size: var(--font-size-xs);
+      margin-top: var(--space-4);
+      color: var(--color-text-secondary);
+      line-height: 1.4;
+    }
+    .receta-card .badge {
+      display: inline-block;
+      background: var(--color-bg-1);
+      color: var(--color-primary);
+      padding: var(--space-2) var(--space-8);
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+      margin-right: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    .receta-modal-bg {
+      position: fixed;
+      top:0;left:0;right:0;bottom:0;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      display: flex;
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      animation: fadeInBg 0.3s var(--ease-standard);
+    }
+    @keyframes fadeInBg {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .receta-modal-card {
+      max-width: 90vw;
+      max-height: 80vh;
+      overflow-y: auto;
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      padding: var(--space-20);
+      animation: modalSlideUp 0.35s var(--ease-standard);
+    }
+    @keyframes modalSlideUp {
+      from { opacity: 0; transform: translateY(40px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .receta-modal-card h3 {
+      color: var(--color-primary);
+      font-size: var(--font-size-xl);
+      margin-bottom: var(--space-12);
+      font-weight: var(--font-weight-bold);
+      letter-spacing: -0.01em;
+    }
+    .receta-modal-card ul {
+      font-size: var(--font-size-sm);
+      margin-left: 1.2em;
+      margin-bottom: var(--space-12);
+      line-height: 1.6;
+    }
+    .receta-modal-card ul li {
+      margin-bottom: var(--space-6);
+    }
+    .close-modal-btn {
+      position: absolute;
+      top: var(--space-12);
+      right: var(--space-12);
+      background: var(--color-secondary);
+      color: var(--color-text);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-full);
+      width: 36px;
+      height: 36px;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all var(--duration-fast) var(--ease-standard);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .close-modal-btn:hover {
+      background: var(--color-red-400);
+      color: var(--color-white);
+      transform: rotate(90deg);
+    }
+
+    /* SECTION: Ejercicios */
+    #ejercicios-section {
+      padding: 0 var(--space-12);
+    }
+    .ejercicios-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-12);
+    }
+    .ejercicio-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: var(--space-16);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      font-size: var(--font-size-sm);
+      position: relative;
+      min-height: 110px;
+      border: 2px solid transparent;
+      transition: all var(--duration-normal) var(--ease-standard);
+      animation: cardFadeIn 0.4s var(--ease-standard) backwards;
+    }
+    .ejercicio-card:nth-child(1) { animation-delay: 0.05s; }
+    .ejercicio-card:nth-child(2) { animation-delay: 0.1s; }
+    .ejercicio-card:nth-child(3) { animation-delay: 0.15s; }
+    .ejercicio-card:nth-child(4) { animation-delay: 0.2s; }
+    .ejercicio-card:nth-child(5) { animation-delay: 0.25s; }
+    .ejercicio-card:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-primary);
+    }
+    .ejercicio-card .icon {
+      font-size: 32px;
+      margin-bottom: var(--space-8);
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+    .ejercicio-card strong {
+      font-size: var(--font-size-lg);
+      color: var(--color-text);
+      font-weight: var(--font-weight-semibold);
+      margin-bottom: var(--space-6);
+      line-height: 1.3;
+    }
+    .ejercicio-details {
+      margin-top: var(--space-8);
+      font-size: var(--font-size-sm);
+      line-height: 1.5;
+    }
+    .ejercicio-badge {
+      display: inline-block;
+      background: var(--color-bg-2);
+      color: var(--color-primary);
+      padding: var(--space-4) var(--space-10);
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+      margin-right: var(--space-6);
+      margin-top: var(--space-6);
+    }
+    .close-ejercicio-btn {
+      position: absolute;
+      top: var(--space-12);
+      right: var(--space-12);
+      background: var(--color-secondary);
+      border: 2px solid var(--color-border);
+      color: var(--color-text);
+      border-radius: var(--radius-full);
+      width: 36px;
+      height: 36px;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all var(--duration-fast) var(--ease-standard);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .close-ejercicio-btn:hover {
+      background: var(--color-red-400);
+      color: var(--color-white);
+      transform: rotate(90deg);
+    }
+
+    /* SECTION: Seguimiento */
+    #seguimiento-section {
+      padding: 0 var(--space-12);
+      flex-direction: column;
+      gap: var(--space-12);
+    }
+    .seguimiento-form {
+      display: flex;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-12);
+      background: var(--color-surface);
+      padding: var(--space-16);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 2px solid var(--color-card-border);
+    }
+    .seguimiento-form input, .seguimiento-form select, .seguimiento-form textarea {
+      font-size: var(--font-size-md);
+      padding: var(--space-10);
+      border-radius: var(--radius-base);
+      border: 2px solid var(--color-border);
+      background: var(--color-background);
+      transition: all var(--duration-fast) var(--ease-standard);
+    }
+    .seguimiento-form input:focus, .seguimiento-form select:focus {
+      border-color: var(--color-primary);
+      box-shadow: var(--focus-ring);
+    }
+    .seguimiento-form .btn {
+      min-width: 100%;
+      height: 52px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-teal-600));
+      color: var(--color-white);
+      border: none;
+      border-radius: var(--radius-base);
+      font-weight: var(--font-weight-semibold);
+      font-size: var(--font-size-md);
+      cursor: pointer;
+      transition: all var(--duration-normal) var(--ease-standard);
+      box-shadow: var(--shadow-md);
+    }
+    .seguimiento-form .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .seguimiento-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--font-size-xs);
+      margin-bottom: var(--space-12);
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .seguimiento-table th, .seguimiento-table td {
+      border: 1px solid var(--color-card-border-inner);
+      padding: var(--space-10) var(--space-8);
+      text-align: center;
+    }
+    .seguimiento-table th {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-teal-600));
+      color: var(--color-white);
+      font-weight: var(--font-weight-semibold);
+      font-size: var(--font-size-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .seguimiento-table td {
+      background: var(--color-background);
+      transition: background var(--duration-fast);
+    }
+    .seguimiento-table tr:nth-child(even) td {
+      background: var(--color-surface);
+    }
+    .seguimiento-table tr:hover td {
+      background: var(--color-bg-1);
+    }
+    .seguimiento-table .delete-row {
+      color: var(--color-red-500);
+      font-size: 18px;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      transition: all var(--duration-fast);
+      padding: var(--space-4);
+    }
+    .seguimiento-table .delete-row:hover {
+      transform: scale(1.2);
+      color: var(--color-red-400);
+    }
+    .small-stats {
+      margin-bottom: var(--space-12);
+      display: flex;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+    }
+    .small-stats span {
+      background: var(--color-surface);
+      color: var(--color-text);
+      border-radius: var(--radius-lg);
+      font-size: var(--font-size-sm);
+      padding: var(--space-10) var(--space-16);
+      letter-spacing: 0px;
+      border: 2px solid var(--color-card-border);
+      box-shadow: var(--shadow-sm);
+      flex: 1;
+      min-width: 140px;
+      text-align: center;
+      font-weight: var(--font-weight-medium);
+    }
+    .small-stats span b {
+      color: var(--color-primary);
+      font-size: var(--font-size-lg);
+      display: block;
+      margin-top: var(--space-4);
+    }
+    /* Chart container */
+    .seguimiento-chart-container {
+      width: 100%;
+      height: 240px;
+      margin-bottom: var(--space-16);
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 2px solid var(--color-card-border);
+      padding: var(--space-12);
+    }
+    .seguimiento-chart-container canvas {
+      display: block;
+      width: 100% !important;
+      height: 220px !important;
+      background: transparent;
+    }
+
+    /* SECTION: Lista Compra */
+    #compra-section {
+      padding: 0 var(--space-12);
+    }
+    .compra-form {
+      display: flex;
+      gap: var(--space-10);
+      margin-bottom: var(--space-12);
+      background: var(--color-surface);
+      padding: var(--space-16);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 2px solid var(--color-card-border);
+      flex-wrap: wrap;
+    }
+    .compra-form input {
+      flex: 1;
+      min-width: 160px;
+      font-size: var(--font-size-md);
+      padding: var(--space-12);
+      border-radius: var(--radius-base);
+      border: 2px solid var(--color-border);
+      background: var(--color-background);
+      transition: all var(--duration-fast);
+    }
+    .compra-form input:focus {
+      border-color: var(--color-primary);
+      box-shadow: var(--focus-ring);
+    }
+    #compra-categoria {
+      font-size: var(--font-size-md);
+      padding: var(--space-12);
+      border-radius: var(--radius-base);
+      border: 2px solid var(--color-border);
+      background: var(--color-background);
+      flex: 0.8;
+      min-width: 120px;
+    }
+    .compra-btn {
+      border-radius: var(--radius-base);
+      background: linear-gradient(135deg, var(--color-primary), var(--color-teal-600));
+      color: var(--color-white);
+      border: none;
+      font-size: var(--font-size-md);
+      font-weight: var(--font-weight-semibold);
+      min-width: 56px;
+      height: 50px;
+      cursor: pointer;
+      transition: all var(--duration-normal) var(--ease-standard);
+      box-shadow: var(--shadow-md);
+    }
+    .compra-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .compra-btn:active {
+      transform: translateY(0);
+    }
+    .lista-compra {
+      margin-bottom: var(--space-12);
+    }
+    .compra-item-row {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      gap: var(--space-8);
+      margin-bottom: var(--space-8);
+      padding: var(--space-12) var(--space-16);
+      font-size: var(--font-size-md);
+      border: 2px solid var(--color-card-border);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--duration-normal) var(--ease-standard);
+      animation: slideInLeft 0.3s var(--ease-standard) backwards;
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .compra-item-row:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateX(4px);
+    }
+    .compra-item-row input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      accent-color: var(--color-primary);
+      margin-right: var(--space-4);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .compra-item-row span {
+      flex: 1;
+      word-break: break-word;
+      line-height: 1.4;
+    }
+    .compra-item-row input[type="checkbox"]:checked + .compra-cat + span {
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+    .compra-cat {
+      background: var(--color-bg-2);
+      color: var(--color-primary);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+      border-radius: var(--radius-full);
+      padding: var(--space-4) var(--space-10);
+      margin-right: var(--space-8);
+      flex-shrink: 0;
+    }
+    .compra-item-row .remove-item-btn {
+      font-size: 20px;
+      color: var(--color-red-500);
+      border: none;
+      background: none;
+      margin-left: var(--space-8);
+      cursor: pointer;
+      transition: all var(--duration-fast);
+      padding: var(--space-4);
+      flex-shrink: 0;
+    }
+    .compra-item-row .remove-item-btn:hover {
+      transform: scale(1.2);
+      color: var(--color-red-400);
+    }
+    .compra-total {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-12);
+      margin-top: 0;
+      text-align: center;
+      background: var(--color-bg-1);
+      padding: var(--space-8);
+      border-radius: var(--radius-base);
+      font-weight: var(--font-weight-medium);
+    }
+    .compra-tools-row {
+      display: flex;
+      gap: var(--space-10);
+      margin-bottom: var(--space-12);
+    }
+    .compra-tools-row .compra-btn {
+      flex: 1;
+      height: 52px;
+    }
+    .compra-tools-row .compra-btn:last-child {
+      background: linear-gradient(135deg, var(--color-red-400), var(--color-red-500));
+    }
+
+    /* SECTION: Info médica */
+    #info-section {
+      padding: 0 var(--space-12);
+    }
+    .info-tabs {
+      display: flex;
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      margin-bottom: var(--space-16);
+      gap: var(--space-6);
+      box-shadow: var(--shadow-md);
+      border: 2px solid var(--color-card-border);
+      overflow-x: auto;
+    }
+    .info-tab-btn {
+      background: transparent;
+      border: 2px solid transparent;
+      border-radius: var(--radius-base);
+      font-size: var(--font-size-sm);
+      color: var(--color-text-secondary);
+      font-weight: var(--font-weight-medium);
+      flex: 1;
+      min-width: fit-content;
+      padding: var(--space-10) var(--space-12);
+      cursor: pointer;
+      transition: all var(--duration-normal) var(--ease-standard);
+      white-space: nowrap;
+    }
+    .info-tab-btn.active {
+      border-color: var(--color-primary);
+      color: var(--color-white);
+      background: linear-gradient(135deg, var(--color-primary), var(--color-teal-600));
+      font-weight: var(--font-weight-semibold);
+      box-shadow: var(--shadow-sm);
+    }
+    .info-content {
+      padding: 0;
+      font-size: var(--font-size-md);
+      line-height: 1.6;
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      padding: var(--space-16);
+      box-shadow: var(--shadow-md);
+      border: 2px solid var(--color-card-border);
+      animation: fadeIn 0.3s var(--ease-standard);
+    }
+    .info-content b {
+      color: var(--color-primary);
+      font-weight: var(--font-weight-semibold);
+    }
+    .info-content ul {
+      margin-left: 1.2em;
+      margin-top: var(--space-8);
+      margin-bottom: var(--space-12);
+    }
+    .info-content ul li {
+      margin-bottom: var(--space-8);
+    }
+    .faq-box {
+      background: var(--color-background);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--space-12);
+      padding: var(--space-16);
+      font-size: var(--font-size-md);
+      border: 2px solid var(--color-card-border);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--duration-normal) var(--ease-standard);
+      animation: slideInLeft 0.3s var(--ease-standard) backwards;
+    }
+    .faq-box:nth-child(1) { animation-delay: 0.05s; }
+    .faq-box:nth-child(2) { animation-delay: 0.1s; }
+    .faq-box:nth-child(3) { animation-delay: 0.15s; }
+    .faq-box:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow-md);
+    }
+    .faq-pregunta {
+      color: var(--color-primary);
+      font-weight: var(--font-weight-semibold);
+      font-size: var(--font-size-md);
+      margin-bottom: var(--space-8);
+      line-height: 1.4;
+    }
+    .faq-respuesta {
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+    @media (min-width: 500px) {
+      .recetas-grid { grid-template-columns: 1fr 1fr 1fr; }
+      .receta-modal-card { max-width: 410px; }
+    }
+    @media (max-width: 420px) {
+      .app-header { padding: 16px 0 10px 0; }
+      main { padding-bottom: 72px; }
+      .tiktok-fab-btn { width: 48px; height: 48px; }
+      .tiktok-fab-btn svg { width: 24px; height: 24px; }
+      .bottom-nav { height: 60px; }
+    }
+    /* Mobile touchable minimums */
+    button, .btn, .nav-btn, input, select {
+      min-height: 44px;
+      touch-action: manipulation;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo-title">🥗 NUTRICIONISTA</div>
+    <div class="subtitle">Pierde peso con IA</div>
+    <div class="credit">by @manuel.mounjaro</div>
+  </header>
+  <button class="tiktok-fab-btn" id="tiktok-btn" title="Ir a TikTok">
+    <!-- TikTok SVG icon (official colors) -->
+    <svg viewBox="0 0 50 50"><g><circle cx="25" cy="25" r="25" fill="#161823"/><path d="M30.568 12.468v17.469c0 2.053-1.668 3.719-3.719 3.719s-3.719-1.666-3.719-3.719c0-2.052 1.668-3.719 3.719-3.719.293 0 .587.028.875.08v-3.808c-.289-.02-.582-.033-.875-.033-4.154 0-7.527 3.375-7.527 7.48 0 4.104 3.373 7.48 7.527 7.48 4.154 0 7.527-3.376 7.527-7.48v-9.489c1.32.987 2.927 1.575 4.695 1.575v-3.684c-1.838 0-3.508-.631-4.83-1.686z" fill="#fff"/><path d="M40.01 17.98c-1.868 0-3.577-.654-4.926-1.74v10.697c0 4.104-3.373 7.48-7.527 7.48-4.153 0-7.527-3.376-7.527-7.48 0-4.105 3.374-7.48 7.527-7.48.295 0 .583.013.872.033v-3.12c-8.104.337-8.601 7.13-8.601 7.445v3.731c0 5.555 4.639 10.082 10.057 10.082 5.418 0 10.056-4.527 10.056-10.082v-13.14l-1.901-.344z" fill="#25F4EE"/><path d="M29.163 20.239V16.38c0-.293-.238-.532-.533-.532h-2.907c-.293 0-.532.239-.532.532v3.86a7.529 7.529 0 0 1 3.972 0z" fill="#FE2C55" /></g></svg>
+  </button>
+  <main>
+    <section id="chat-section" style="display: flex;"></section>
+    <section id="recetas-section" style="display:none;"></section>
+    <section id="ejercicios-section" style="display:none;"></section>
+    <section id="seguimiento-section" style="display:none;"></section>
+    <section id="compra-section" style="display:none;"></section>
+    <section id="info-section" style="display:none;"></section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="nav-btn active" data-tab="chat" id="nav-chat">💬<span>Chat</span></button>
+    <button class="nav-btn" data-tab="recetas" id="nav-recetas">🍽️<span>Recetas</span></button>
+    <button class="nav-btn" data-tab="ejercicios" id="nav-ejercicios">💪<span>Ejercicios</span></button>
+    <button class="nav-btn" data-tab="seguimiento" id="nav-seguimiento">📊<span>Peso</span></button>
+    <button class="nav-btn" data-tab="compra" id="nav-compra">🛒<span>Compra</span></button>
+    <button class="nav-btn" data-tab="info" id="nav-info">ℹ️<span>Info</span></button>
+  </nav>
+  <script>
+const recetas = [
+  { nombre:"Pechuga de Pollo a la Plancha con Verduras", calorias:280, proteina:35, dificultad:"Fácil", metodo:"50% verduras, 25% proteína, 25% carbohidratos", ingredientes:["200g pechuga de pollo","300g verduras variadas (brócoli, champiñones)","100g arroz integral cocido"], pasos:["Cocinar el arroz","Sellar la pechuga a fuego alto","Saltear verduras","Mezclar y servir"] },
+  { nombre:"Ensalada de Atún con Aguacate", calorias:320, proteina:28, dificultad:"Muy Fácil", metodo:"60% verduras, 25% proteína, 15% grasas saludables", ingredientes:["150g atún en lata sin aceite","1 aguacate pequeño","200g lechuga mixta","50g tomate"], pasos:["Preparar la base de lechuga","Agregar atún desmenuzado","Añadir aguacate en trozos","Aderezar con limón y aceite oliva"] },
+  { nombre:"Salmón al Horno con Espárragos", calorias:350, proteina:32, dificultad:"Media", metodo:"40% verduras, 35% proteína, 25% grasas omega-3", ingredientes:["180g salmón","250g espárragos","Limón","Aceite oliva extra virgen"], pasos:["Precalentar horno a 200°C","Preparar salmón con limón","Colocar espárragos alrededor","Hornear 18 minutos"] },
+  { nombre:"Tortilla Vegetal de Claras", calorias:180, proteina:22, dificultad:"Fácil", metodo:"50% verduras, 40% proteína, 10% carbohidratos", ingredientes:["3 claras de huevo","100g espinaca","50g champiñones","30g queso bajo grasa"], pasos:["Saltear vegetales","Batir claras","Cocinar tortilla a fuego medio","Agregar queso y verduras"] },
+  { nombre:"Pavo Molido con Calabacín", calorias:240, proteina:30, dificultad:"Fácil", metodo:"55% verduras, 35% proteína, 10% carbohidratos", ingredientes:["200g pavo molido","300g calabacín","50g cebolla","Tomate natural"], pasos:["Saltear cebolla y calabacín","Añadir pavo molido","Cocinar 8-10 minutos","Agregar tomate al final"] },
+  { nombre:"Lentejas Fit con Verduras", calorias:310, proteina:21, dificultad:"Media", metodo:"60% verduras, 25% proteína, 15% legumbres", ingredientes:["90g lentejas cocidas","150g espinaca","60g zanahoria","40g cebolla","30g pimiento rojo"], pasos:["Saltear cebolla, zanahoria y pimiento","Agregar las lentejas","Añadir espinaca hasta reducir","Servir"] },
+  { nombre:"Tacos de Pavo Saludables", calorias:290, proteina:24, dificultad:"Fácil", metodo:"45% verduras, 30% proteína, 25% carbohidratos saludables", ingredientes:["100g pavo molido","2 tortillas maíz integrales","50g col morada","30g tomate","Aguacate en rodajas"], pasos:["Dorar el pavo","Calentar tortillas unos segundos","Rellenar con pavo, verdura, aguacate","Servir"] },
+  { nombre:"Tofu Salteado con Verduras y Quinoa", calorias:340, proteina:22, dificultad:"Media", metodo:"55% verduras, 25% proteína vegetal, 20% carbohidratos complejos", ingredientes:["100g tofu firme","150g mezcla verduras (brócoli, zanahoria)","60g quinoa cocida","Soja baja en sodio"], pasos:["Saltear verduras y tofu juntos","Añadir quinoa y salsa soja","Servir caliente"] },
+  { nombre:"Merluza con Calabaza Asada", calorias:230, proteina:25, dificultad:"Fácil", metodo:"50% verduras, 40% proteína, 10% tubérculos", ingredientes:["120g filete merluza","120g calabaza","Limón","Perejil fresco"], pasos:["Hornear calabaza con limón","Hacer merluza plancha 2min/lad.","Montar todo y espolvorear perejil","Servir"] },
+  { nombre:"Bowl de Yogur Griego Proteico", calorias:180, proteina:18, dificultad:"Muy Fácil", metodo:"35% lácteo, 50% frutas, 15% grasas saludables", ingredientes:["140g yogur griego sin azúcar","60g frambuesas/moras","10g nueces picadas","1 cdta semillas chía"], pasos:["Servir el yogur","Añadir frutas y toppings","Mezclar suavemente"] }
+];
+const ejercicios = [
+  { nombre: "Cardio Quema-Grasa 25 min", duracion:25, dificultad: "Media", ejercicios:["5 min calentamiento (movilidad)","10 min HIIT: 30s burpees + 30s descanso (5 series)","5 min caminata rápida","5 min estiramientos"] },
+  { nombre: "Tonificación sin Equipos 20 min", duracion:20, dificultad:"Media-Alta", ejercicios:["5 min calentamiento","3 series x 12 flexiones","3 series x 15 sentadillas","3 series x 10 fondos en silla","3 series x 20 mountain climbers"] },
+  { nombre:"Yoga y Flexibilidad 30 min", duracion:30, dificultad: "Baja", ejercicios:["5 min respiración consciente","10 min calentamiento suave","10 min posturas principales","5 min meditación"] },
+  { nombre:"Abdominales y Core 15 min", duracion:15, dificultad:"Alta", ejercicios:["3 min calentamiento","3 series x 15 crunches","3 series x 20s plank","3 series x 12 leg raises","2 min estiramientos"] },
+  { nombre:"Full Body 30 min", duracion:30, dificultad:"Media", ejercicios:["5 min calentamiento","4 series x 10 flexiones","4 series x 15 sentadillas","3 series x 20 jumping jacks","3 series x 12 fondos","5 min estiramientos"] }
+];
+const mounjaro_protocolo = {
+  dosis_semanas: [
+    "Semana 1-4: 2.5 mg semanal (iniciación)",
+    "Semana 5-8: 5 mg semanal (escalonamiento)",
+    "Semana 9-12: 10 mg semanal (mantenimiento bajo)",
+    "Semana 13+: 15 mg semanal (dosis terapéutica)"
+  ],
+  resultados: "Pérdida de peso 22-25% del peso inicial en 68 semanas",
+  efectos: "Náuseas, vómitos, dolores de cabeza, estreñimiento"
+};
+const ozempic_protocolo = {
+  dosis_semanas: [
+    "Semana 1-4: 0.25 mg semanal (iniciación)",
+    "Semana 5-8: 0.5 mg semanal (escalonamiento)",
+    "Semana 9-12: 1 mg semanal",
+    "Semana 13+: 2.4 mg semanal (máximo)"
+  ],
+  resultados: "Pérdida de peso 10-15% del peso inicial",
+  efectos: "Similares a Mounjaro pero menos potentes"
+};
+const faq = [
+  { pregunta: "¿Cuándo empiezo a ver resultados?", respuesta: "Generalmente entre semana 4-6 de tratamiento" },
+  { pregunta: "¿Puedo tomar alcohol?", respuesta: "Se recomienda evitar el alcohol mientras se toma GLP-1" },
+  { pregunta: "¿Es seguro hacer ejercicio?", respuesta: "Sí, el ejercicio es importante. Empieza suave y aumenta gradualmente" }
+];
+
+let seguimiento_hist = [];
+let compra_lista = [];
+let chat_history = [
+  {sender:'assistant', text:`¡Bienvenido/a! Soy tu asistente nutricional para <b>Mounjaro&trade; y Ozempic&trade;</b>.<br> ¿En qué puedo ayudarte hoy?`}
+];
+
+let activeTab = 'chat';
+let recetasModalIdx = null;
+let ejerciciosModalIdx = null;
+let infoTab = 'mounjaro';
+
+// ------------ Navigation ------------
+const updateTabView = ()=>{
+  ["chat","recetas","ejercicios","seguimiento","compra","info"].forEach(tab=>{
+    document.getElementById(tab+"-section").style.display=(tab===activeTab)?"flex":"none";
+    document.getElementById("nav-"+tab).classList.toggle('active', tab===activeTab);
+  });
+};
+["chat","recetas","ejercicios","seguimiento","compra","info"].forEach(tab=>{
+  document.getElementById("nav-"+tab).addEventListener('click',()=>{
+    activeTab = tab;
+    updateTabView();
+    if(tab==="seguimiento") setTimeout(renderChart,97);
+  });
+});
+updateTabView();
+
+// --- TikTok Floating button ---
+document.getElementById('tiktok-btn').addEventListener('click',()=>{
+  window.open('https://www.tiktok.com/@manuel.mounjaro','_blank');
+});
+
+// ------------ CHAT/ASISTENTE ------------
+function renderChat(){
+  const chatSec = document.getElementById('chat-section');
+  chatSec.innerHTML = `
+  <div class="chat-header">💬 Pregúntame lo que quieras</div>
+  <div class="chat-history" id="chat-history" tabindex="-1"></div>
+  <form class="chat-form" id="chat-form" autocomplete="off">
+    <input type="text" id="chat-input" placeholder="Escribe tu pregunta..." maxlength="120" required autofocus autocomplete="off" inputmode="text" style="min-width:0;"/>
+    <button type="submit" title="Enviar">➤</button>
+  </form>`;
+  const history = chatSec.querySelector('#chat-history');
+  history.innerHTML = chat_history.map(m=>`<div class="chat-bubble ${m.sender}">${m.text}</div>`).join('');
+  history.scrollTop = history.scrollHeight;
+  // send handler
+  const form = chatSec.querySelector('#chat-form');
+  form.onsubmit = e => {
+    e.preventDefault();
+    const txt = form.querySelector('#chat-input').value.trim();
+    if(!txt) return;
+    chat_history.push({sender:'user', text:escapeHtml(txt)});
+    form.querySelector('#chat-input').value = '';
+    respondToChat(txt);
+    renderChat();
+  };
+}
+function escapeHtml(str){
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function respondToChat(text){
+  const s = text.toLowerCase();
+  // Búsquedas básicas
+  if(/(mounjaro|dosis)/.test(s)){
+    chat_history.push({sender:'assistant',text:`<b>Mounjaro®</b> dosis:<br>${mounjaro_protocolo.dosis_semanas.map(x=>'<div>'+x+'</div>').join('')}`});
+  }else if(/ozempic|semaglutida/.test(s)){
+    chat_history.push({sender:'assistant',text:`<b>Ozempic®</b> dosis:<br>${ozempic_protocolo.dosis_semanas.map(x=>'<div>'+x+'</div>').join('')}`});
+  }else if(/efecto(s)?|secundario(s)?|mareo|dolor|estreñimiento|nausea|vomito/.test(s)){
+    chat_history.push({sender:'assistant',text:`Efectos secundarios frecuentes:<br>${mounjaro_protocolo.efectos}<br><i>Si los síntomas persisten, consulta a tu médico.</i>`});
+  }else if(/nutri(ción|ente|tivo)|glp-1|alimentos|comer|dieta|verdura|frutas|proteina/.test(s)){
+    chat_history.push({sender:'assistant',text:`La nutrición con <b>GLP-1</b> debe priorizar proteína (≥1.2g/kg/día), verduras/fibra y grasas saludables. Ejemplo plato 50-25-25: 50% verdura, 25% proteína, 25% carbohidrato integral.`});
+  }else if(/(metabolismo|masa muscular|proteína)/.test(s)){
+    chat_history.push({sender:'assistant',text:`Para proteger masa muscular con GLP-1: ingiere proteína suficiente (≥1.2g/kg/día), realiza rutinas de fuerza/resistencia, y controla el peso semanalmente.`});
+  }else if(/resultado(s)?|cuanto peso|avanz|progreso/.test(s)){
+    chat_history.push({sender:'assistant',text:`Resultados típicos:<br/><b>Mounjaro</b>: 22-25% pérdida peso<br/><b>Ozempic</b>: 10-15% pérdida peso<br/><span style='font-size:12px;color:var(--color-text-secondary)'>Varía según adherencia y factores personales.</span>`});
+  }else{
+    // fallback FAQ/informativo
+    for(let qa of faq){
+      if(s.includes(qa.pregunta.split(' ')[0].toLowerCase())){
+        chat_history.push({sender:'assistant',text:`<b>${qa.pregunta}</b><br>${qa.respuesta}`});
+        return;
+      }
+    }
+    chat_history.push({sender:'assistant',text:`¿Quieres saber sobre dosis, nutrición, efectos? ¡Pregunta!`});
+  }
+}
+renderChat();
+
+// ------------ RECETAS ------------
+function renderRecetas(){
+  const sec = document.getElementById('recetas-section');
+  sec.innerHTML = `<div class="recetas-grid">
+    ${recetas.map((r,idx)=>`<div class="receta-card" tabindex="0" onclick="openRecetaModal(${idx})">
+      <div class="icon">🍽️</div>
+      <strong>${escapeHtml(r.nombre)}</strong>
+      <div class="badge">${r.calorias} kcal</div>
+      <div class="badge">${r.proteina}g proteína</div>
+      <div class="badge">${r.dificultad}</div>
+    </div>`).join('')}
+  </div>`;
+  if(recetasModalIdx!==null) showRecetaModal(recetasModalIdx);
+}
+window.openRecetaModal = function(idx){
+  recetasModalIdx = idx;
+  showRecetaModal(idx);
+}
+function showRecetaModal(idx){
+  const r = recetas[idx];
+  const sec = document.getElementById('recetas-section');
+  const modal = document.createElement('div');
+  modal.className = 'receta-modal-bg';
+  modal.innerHTML = `<div class='receta-modal-card' style='position:relative;'>
+    <button class='close-modal-btn' onclick='closeRecetaModal()' aria-label='Cerrar'>×</button>
+    <h3>${escapeHtml(r.nombre)}</h3>
+    <div><b>Calorías:</b> ${r.calorias} kcal &nbsp;|&nbsp; <b>Proteína:</b> ${r.proteina}g<br><b>Distribución:</b> ${r.metodo}</div>
+    <hr/>
+    <div><b>Ingredientes:</b>
+      <ul>${r.ingredientes.map(x=>'<li>'+escapeHtml(x)+'</li>').join('')}</ul>
+    </div>
+    <div><b>Paso a paso:</b>
+      <ul>${r.pasos.map(x=>'<li>'+escapeHtml(x)+'</li>').join('')}</ul>
+    </div>
+  </div>`;
+  modal.onclick = e => { if(e.target===modal) closeRecetaModal(); };
+  sec.appendChild(modal);
+}
+window.closeRecetaModal = function(){
+  recetasModalIdx = null;
+  renderRecetas();
+}
+renderRecetas();
+
+// ------------ EJERCICIOS ------------
+function renderEjercicios(){
+  const sec = document.getElementById('ejercicios-section');
+  sec.innerHTML = `<div class="ejercicios-list">
+${ejercicios.map((r,idx)=>`<div class="ejercicio-card" tabindex="0" onclick="openEjercicioModal(${idx})">
+    <div class="icon">${r.icono}</div>
+    <strong>${escapeHtml(r.nombre)}</strong>
+    <div>
+      <span class="ejercicio-badge">${r.duracion} min</span>
+      <span class="ejercicio-badge">${r.dificultad}</span>
+    </div>
+    <div class="ejercicio-details" style="color: var(--color-info); margin-top: var(--space-8);">
+      Toca para ver detalles de la rutina ➤
+    </div>
+  </div>`).join('')}</div>`;
+  if(ejerciciosModalIdx!==null) showEjercicioModal(ejerciciosModalIdx);
+}
+window.openEjercicioModal = function(idx){
+  ejerciciosModalIdx = idx;
+  showEjercicioModal(idx);
+}
+function showEjercicioModal(idx){
+  const r = ejercicios[idx];
+  const sec = document.getElementById('ejercicios-section');
+  const modal = document.createElement('div');
+  modal.className = 'receta-modal-bg';
+  modal.innerHTML = `<div class='receta-modal-card' style='position:relative;'>
+    <button class='close-ejercicio-btn' onclick='closeEjercicioModal()' aria-label='Cerrar'>×</button>
+    <h3>${escapeHtml(r.nombre)}</h3>
+    <div><b>Duración:</b> ${r.duracion} min &nbsp;|&nbsp; <b>Dificultad:</b> ${r.dificultad}</div>
+    <hr/>
+    <div><b>Ejercicios:</b>
+      <ul>${r.ejercicios.map(x=>'<li>'+escapeHtml(x)+'</li>').join('')}</ul>
+    </div>
+    <small style="color:var(--color-info)">Rutinas pensadas para preservar masa muscular durante pérdida de peso</small>
+  </div>`;
+  modal.onclick = e => { if(e.target===modal) closeEjercicioModal(); };
+  sec.appendChild(modal);
+}
+window.closeEjercicioModal = function(){
+  ejerciciosModalIdx = null;
+  renderEjercicios();
+}
+renderEjercicios();
+
+// ------------ SEGUIMIENTO ------------
+function renderSeguimiento(){
+  const sec = document.getElementById('seguimiento-section');
+  const fields = ['Semana','Dosis (mg)','Peso (kg)','Cintura (cm)','Notas'];
+  sec.innerHTML = `
+    <form class="seguimiento-form" id="seguimiento-form">
+      <input required type="number" min="1" max="90" name="semana" placeholder="Semana" style="width:70px;max-width:80px;" />
+      <input required type="number" step="0.01" min="0" max="22" name="dosis" placeholder="Dosis mg" style="width:85px;max-width:90px;" />
+      <input required type="number" step="0.1" min="20" max="350" name="peso" placeholder="Peso kg" style="width:85px;" />
+      <input type="number" step="0.1" min="30" max="200" name="cintura" placeholder="Cintura cm" style="width:82px;" />
+      <input type="text" maxlength="40" name="notas" placeholder="Notas (opcional)" style="width:95px;" />
+      <button class="btn btn--primary" type="submit">Guardar</button>
+    </form>
+    <div class="seguimiento-chart-container"><canvas id="seguimiento-chart"></canvas></div>
+    <div class="small-stats" id="seguimiento-stats"></div>
+    <table class="seguimiento-table" id="seguimiento-table">
+      <thead><tr>${fields.map(h=>`<th>${h}</th>`).join('')}<th>Acción</th></tr></thead>
+      <tbody>
+        ${seguimiento_hist.map((row,i)=>`<tr>
+          <td>${row.semana}</td><td>${row.dosis}</td><td>${row.peso}</td><td>${row.cintura||''}</td><td>${escapeHtml(row.notas||'')}</td>
+          <td><button class="delete-row" title="Eliminar" onclick="deleteSeguimiento(${i})">🗑️</button></td>
+        </tr>`).join('')}
+      </tbody>
+    </table>
+  `;
+  sec.querySelector('#seguimiento-form').onsubmit = function(e){
+    e.preventDefault();
+    const f=e.target;
+    seguimiento_hist.push({
+      semana:f.semana.valueAsNumber,
+      dosis:f.dosis.valueAsNumber,
+      peso:f.peso.valueAsNumber,
+      cintura:f.cintura.valueAsNumber||'',
+      notas:f.notas.value.trim()
+    });
+    renderSeguimiento();
+  };
+  renderSegStats();
+  renderChart();
+}
+window.deleteSeguimiento = function(i){
+  seguimiento_hist.splice(i,1); renderSeguimiento();
+};
+function renderSegStats(){
+  if(!seguimiento_hist.length) {document.getElementById('seguimiento-stats').innerHTML=''; return;}
+  let inicio=seguimiento_hist[0].peso, fin=seguimiento_hist.at(-1).peso;
+  let perd = (inicio-fin).toFixed(1), avg = (seguimiento_hist.reduce((a,b)=>a+b.peso,0)/seguimiento_hist.length).toFixed(1);
+  let semanas = seguimiento_hist.length;
+  document.getElementById('seguimiento-stats').innerHTML = `
+    <span>Peso perdido<b>${perd} kg</b></span>
+    <span>Peso promedio<b>${avg} kg</b></span>
+    <span>Total semanas<b>${semanas}</b></span>
+  `;
+}
+function renderChart(){
+  let ctx=document.getElementById('seguimiento-chart').getContext('2d');
+  if(window._segChart) window._segChart.destroy();
+  window._segChart = new Chart(ctx, {
+    type:'line',
+    data:{
+      labels: seguimiento_hist.map(x=>`S${x.semana}`),
+      datasets:[{
+        label:'Peso (kg)',
+        data:seguimiento_hist.map(x=>x.peso),
+        borderColor:'#1FB8CD',
+        backgroundColor:'rgba(50,184,198,.10)',
+        tension:.27,
+        pointRadius:3,
+        pointBackgroundColor:'#B4413C',
+        pointBorderColor:'#B4413C',
+        fill:true,
+      }]
+    },
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      scales:{
+        y: {beginAtZero:false, ticks:{precision:0}},
+        x: {beginAtZero:true}
+      },
+      plugins:{legend:{display:false}},
+      animation:false
+    }
+  });
+}
+renderSeguimiento();
+
+// ------------ LISTA DE COMPRA ------------
+const categorias = ["Proteína","Verduras","Frutas","Lácteos","Cereales","Snacks","Otros"];
+function renderCompra(){
+  const sec = document.getElementById('compra-section');
+  sec.innerHTML = `
+    <form class="compra-form" id="compra-form">
+      <input type="text" id="compra-text" maxlength="30" placeholder="Añadir alimento" required />
+      <select id="compra-categoria">${categorias.map(x=>`<option>${x}</option>`).join('')}</select>
+      <button type="submit" class="compra-btn">+</button>
+    </form>
+    <div class="compra-tools-row">
+      <button class="compra-btn" id="compra-copy-btn">Copiar a WhatsApp</button>
+      <button class="compra-btn" style="background:var(--color-red-400)" id="compra-clear-btn">Limpiar lista</button>
+    </div>
+    <div class="compra-total">${compra_lista.length} elementos</div>
+    <div class="lista-compra">
+      ${compra_lista.map((item,idx)=>`
+        <div class="compra-item-row">
+          <input type="checkbox" ${item.checked?'checked':''} onclick="toggleCompraCheck(${idx})" title="Marcar comprado" />
+          <span class="compra-cat">${escapeHtml(item.categoria)}</span>
+          <span>${escapeHtml(item.texto)}</span>
+          <button type="button" class="remove-item-btn" onclick="removeCompraItem(${idx})">×</button>
+        </div>
+      `).join('')}
+    </div>`;
+  sec.querySelector('#compra-form').onsubmit=e=>{
+    e.preventDefault();
+    const texto=sec.querySelector('#compra-text').value.trim();
+    if(!texto) return;
+    const categoria=sec.querySelector('#compra-categoria').value;
+    compra_lista.push({texto,categoria,checked:false});
+    renderCompra();
+  };
+  sec.querySelector('#compra-copy-btn').onclick=()=>{
+    const txt = compra_lista.map(x=>`[${x.categoria}] ${x.texto}${x.checked?' ✔️':''}`).join(`\n`);
+    navigator.clipboard.writeText(txt).then(()=>{
+      sec.querySelector('#compra-copy-btn').innerText='¡Copiado!';
+      setTimeout(()=>sec.querySelector('#compra-copy-btn').innerText='Copiar a WhatsApp',950);
+    });
+  };
+  sec.querySelector('#compra-clear-btn').onclick=()=>{
+    compra_lista=[]; renderCompra();
+  };
+}
+window.toggleCompraCheck=function(idx){
+  compra_lista[idx].checked=!compra_lista[idx].checked; renderCompra();
+}
+window.removeCompraItem=function(idx){
+  compra_lista.splice(idx,1); renderCompra();
+}
+renderCompra();
+
+// ------------ INFO MÉDICA ------------
+function renderInfo(){
+  const sec = document.getElementById('info-section');
+  const tabs = [
+    {id:'mounjaro',lbl:'Protocolo Mounjaro'},
+    {id:'ozempic',lbl:'Protocolo Ozempic'},
+    {id:'comparativa',lbl:'Comparativa'},
+    {id:'faq',lbl:'FAQ'},
+  ];
+  sec.innerHTML = `
+    <div class="info-tabs">
+      ${tabs.map(t=>`<button class="info-tab-btn${t.id===infoTab?' active':''}" onclick="setInfoTab('${t.id}')">${t.lbl}</button>`).join('')}
+    </div>
+    <div class="info-content">
+      ${infoTab==='mounjaro'?`
+        <b>Protocolo Mounjaro:</b><ul>${mounjaro_protocolo.dosis_semanas.map(x=>`<li>${x}</li>`).join('')}</ul><b>Resultados esperados:</b> ${mounjaro_protocolo.resultados}<br><b>Efectos secundarios:</b> ${mounjaro_protocolo.efectos}
+      `:infoTab==='ozempic'?`
+        <b>Protocolo Ozempic:</b><ul>${ozempic_protocolo.dosis_semanas.map(x=>`<li>${x}</li>`).join('')}</ul><b>Resultados esperados:</b> ${ozempic_protocolo.resultados}<br><b>Efectos secundarios:</b> ${ozempic_protocolo.efectos}
+      `:infoTab==='comparativa'?`
+        <b>Comparativa rápida:</b>
+        <ul><li><b>Mounjaro:</b> Pérdida 22-25% peso inicial. Es más potente y más efectos secundarios gastrointestinales.</li>
+        <li><b>Ozempic:</b> Pérdida 10-15% peso inicial. Mejor tolerancia pero menos potente.</li>
+        </ul>
+        <div style="background:var(--color-bg-5);border-radius:7px;padding:6px 12px;font-size:var(--font-size-xs);color:var(--color-info)">Ambos deben usarse bajo supervisión médica directa.</div>
+      `:`
+        ${faq.map(q=>`
+        <div class="faq-box">
+          <div class="faq-pregunta">${q.pregunta}</div>
+          <div class="faq-respuesta">${q.respuesta}</div>
+        </div>
+        `).join('')}
+        <div style="color:var(--color-warning);font-size:var(--font-size-xs);margin-top:5px;">Ante síntomas graves o persistentes, contacta con tu equipo médico.</div>
+      `}
+    </div>
+  `;
+}
+window.setInfoTab = function(id){
+  infoTab=id; renderInfo();
+}
+renderInfo();
+//--- END SCRIPT ---
+</script>
+</body>
+</html>
